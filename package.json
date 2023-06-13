@@ -4,7 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "backend": "nodemon src/server/index.js",
+    "frontend:dev": "webpack server --config webpack.dev.js --open",
+    "frontend:prod": "webpack --config webpack.prod.js"
   },
   "keywords": [],
   "author": "",
