@@ -1,3 +1,4 @@
+
 const path = require("path");
 const webpack = require("webpack");
 const HTMLWebpackPlugin = require("html-webpack-plugin");
@@ -5,11 +6,14 @@ const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 
 module.exports = {
   entry: "./src/client/index.js",
+  mode: "development",
+  devtool: "source-map",
+  stats: "verbose",
   output: {
-    file: "main.js",
-    path: path(__dirname, "dist"),
+    filename: "main.js",
+    path: path.resolve(__dirname, "dist"),
   },
-  modules: {
+  module: {
     rules: [
       {
         test: /\.js$/i,
@@ -17,7 +21,7 @@ module.exports = {
       },
       {
         test: /\.s[ac]ss$/i,
-        use: ["style-loader", "css-loader" ,"sass-loader"],
+        use: ["style-loader", "css-loader", "sass-loader"],
       },
     ],
   },
