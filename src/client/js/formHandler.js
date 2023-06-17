@@ -1,7 +1,10 @@
 async function handleSubmit(event) {
     event.preventDefault()
 
-    const textToAnalyze = document.getElementById('txt').value;
+    let textToAnalyze = document.getElementById('txt').value;
+    if(!textToAnalyze || (typeof textToAnalyze === "string" && !textToAnalyze?.trim()?.length)) return
+
+
     let response;
 
     try {
