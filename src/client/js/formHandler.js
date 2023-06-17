@@ -1,16 +1,24 @@
-function handleSubmit(event) {
+async function handleSubmit(event) {
     event.preventDefault()
 
-    // check what text was put into the form field
-    let formText = document.getElementById('name').value
-    checkForName(formText)
+    const textToAnalyze = document.getElementById('txt').value;
+    let response;
 
-    console.log("::: Form Submitted :::")
-    fetch('http://localhost:8080/test')
-    .then(res => res.json())
-    .then(function(res) {
-        document.getElementById('results').innerHTML = res.message
-    })
+    try {
+      response = await fetch('http://localhost:8080/analyze', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({text: textToAnalyze}),
+      })
+      response = await response.json()
+    }catch(err){
+      console.error("Error in analyzing data", err)
+      response = {status: "error", message: "Error in analyzing data"}
+    }
+    
+    Client.updateUI(response)
 }
 
 export { handleSubmit }
