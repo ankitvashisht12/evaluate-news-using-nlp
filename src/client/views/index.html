@@ -19,21 +19,30 @@
 
   <main>
     <section>
-      <form class="" onsubmit="return handleSubmit(event)">
-        <input id="name" type="text" name="input" value="" onblur="onBlur()" placeholder="Name" />
-        <input type="submit" name="" value="submit" onclick="return handleSubmit(event)"
+      <form class="eval-form" onsubmit="return handleSubmit(event)">
+        <div class="textarea-container">
+          <label for="txt">Enter your text here:</label>
+          <textarea rows="10" id="txt" name="txt"
+            placeholder="your text on which you want to run sentimental analysis...">
+          </textarea>
+        </div>
+        <input type="submit" value="Submit" onclick="return handleSubmit(event)"
           onsubmit="return handleSubmit(event)" />
       </form>
     </section>
 
     <section>
-      <strong>Form Results:</strong>
+      <strong>Results:</strong>
       <div id="results"></div>
     </section>
   </main>
 
   <footer>
-    <p>This is a footer</p>
+    <p>
+      Created by
+      <a href="https://www.ankitvashisht.in">Ankit Vashisht</a> | Udacity Front
+      End Web Developer Nanodegree
+    </p>
   </footer>
 </body>
 
