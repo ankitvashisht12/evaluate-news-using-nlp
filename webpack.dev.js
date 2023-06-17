@@ -1,4 +1,3 @@
-
 const path = require("path");
 const webpack = require("webpack");
 const HTMLWebpackPlugin = require("html-webpack-plugin");
@@ -24,6 +23,10 @@ module.exports = {
         use: ["style-loader", "css-loader", "sass-loader"],
       },
     ],
+  },
+  devServer: {
+    hot: true,
+    watchFiles: ["./src/client/**/*.js", "./src/client/**/*.scss", "./src/client/**/*.html"],
   },
   plugins: [
     new CleanWebpackPlugin(),
