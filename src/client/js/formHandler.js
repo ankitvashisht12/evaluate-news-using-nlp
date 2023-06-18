@@ -11,6 +11,7 @@ async function handleSubmit(event) {
     return;
   }
 
+  let response;
   try {
     response = await fetch("http://localhost:8080/analyze", {
       method: "POST",
@@ -24,6 +25,7 @@ async function handleSubmit(event) {
     console.error("Error in analyzing data", err);
     response = { status: "error", message: "Error in analyzing data" };
   }
+  console.log("response", response);
 
   Client.updateUI(response);
 }
