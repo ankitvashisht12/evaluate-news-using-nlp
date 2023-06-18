@@ -4,15 +4,12 @@ async function handleSubmit(event) {
   let url = document.getElementById("url").value;
   if (
     !url ||
-    (typeof textToAnalyze === "string" && !url?.trim()?.length) ||
+    (typeof url === "string" && !url?.trim()?.length) ||
     !Client.isValidURL(url)
   ) {
     alert("Please enter a valid URL");
     return;
   }
-
-
-  let response;
 
   try {
     response = await fetch("http://localhost:8080/analyze", {
@@ -20,7 +17,7 @@ async function handleSubmit(event) {
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ text: textToAnalyze }),
+      body: JSON.stringify({ url: url }),
     });
     response = await response.json();
   } catch (err) {
