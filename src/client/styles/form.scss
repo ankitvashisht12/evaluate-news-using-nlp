@@ -5,7 +5,8 @@ form {
 }
 
 .eval-form {
-  textarea, input {
+  textarea,
+  input {
     padding: 20px;
     width: 100%;
     line-height: 16px;
@@ -14,5 +15,33 @@ form {
 
   input[type="submit"] {
     cursor: pointer;
+  }
+}
+
+.overall-result,
+.detail-result {
+  padding: 20px;
+  h3 {
+    font-size: 32px;
+    font-weight: bold;
+    text-decoration: underline;
+    margin-bottom: 10px;
+  }
+}
+
+.detail-result {
+  ul {
+    display: flex;
+    flex-direction: column;
+    max-height: 400px;
+    overflow-y: auto;
+    gap: 10px;
+    .result-item {
+      padding: 10px 0;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      border-bottom: 1px solid #545454;
+    }
   }
 }
