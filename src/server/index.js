@@ -29,7 +29,7 @@ app.post("/analyze", async function (req, res, next) {
 
   formData.append("key", key);
   formData.append("lang", lang);
-  formData.append("txt", req.body.text);
+  formData.append("url", req.body.url);
   formData.append("model", model);
 
   try {
@@ -44,7 +44,7 @@ app.post("/analyze", async function (req, res, next) {
       status: "success",
       polarity: data.score_tag === "P" ? "POSITIVE" : "NEGATIVE",
       subjectivity: data.subjectivity,
-      text: req.body.text,
+      sentence_list: data.sentence_list,
     });
   } catch (err) {
     console.error("Error in analyzing data", err);
