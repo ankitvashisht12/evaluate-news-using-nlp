@@ -21,10 +21,8 @@
     <section>
       <form class="eval-form" onsubmit="return Client.handleSubmit(event)">
         <div class="textarea-container">
-          <label for="txt">Enter your text here:</label>
-          <textarea rows="10" id="txt" name="txt"
-            placeholder="your text on which you want to run sentimental analysis...">
-          </textarea>
+          <label for="url">Enter the URL of any blog here:</label>
+          <input type="url" id="url" name="url" placeholder="Enter URL here..." />
         </div>
         <input type="submit" value="Submit" />
       </form>
